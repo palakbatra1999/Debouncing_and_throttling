@@ -1,0 +1,39 @@
+Throttling :
+
+import React from 'react'
+
+const playground = () => {
+
+  const click = () =>{
+    console.log("Clicking on the button");
+  }
+
+  
+
+  const throttle = (func,limit) => {
+    let flag=true;
+    return function (){
+      if(flag)
+      {
+        func();
+        flag=false;
+        setTimeout(()=>{
+          flag=true;
+        },limit);
+      }
+    }
+  }
+
+  const Saveclick = throttle(click, 5000);
+
+
+  return (
+   <>
+
+      <button onClick={Saveclick}>Start</button>
+
+   </>
+  )
+}
+
+export default playground;
