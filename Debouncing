@@ -1,0 +1,37 @@
+import React from 'react'
+
+const playground = () => {
+
+  const click = ()=>{
+    console.log("Printing");
+  }
+
+  const debounce = function(fn,limit){
+
+    let timer;
+    return function () {
+      let context=this;
+      let args=arguments;
+
+      clearTimeout(timer);
+      timer= setTimeout(()=>{
+        fn.apply(context,args);
+      
+      },limit);
+    }
+  }
+
+
+  const onClickSave = debounce(click,300);
+
+
+  return (
+   <>
+
+      <input onKeyUp={onClickSave} />
+
+   </>
+  )
+}
+
+export default playground;
