@@ -1,0 +1,21 @@
+Fetch :
+
+Way 1 ->
+
+async function logMovies() {
+  const response = await fetch("http://example.com/movies.json");
+  const movies = await response.json();
+  console.log(movies);
+}
+
+Way 2 ->
+
+async function logMovies() {
+  fetch("http://example.com/movies.json").
+  then(res=> res.json()).
+  then(res=> console.log(res));
+}
+
+
+
+
